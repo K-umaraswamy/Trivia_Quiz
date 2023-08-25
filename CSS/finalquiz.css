@@ -1,0 +1,15 @@
+div{
+    background-color: rgb(168, 244, 219);
+    height:50px;
+    width:50px;
+    border-radius:10px;
+}
+.card{
+    height:auto;
+    width:90%;
+    background-color:rgb(148, 148, 241);
+    color:rgb(36, 36, 16)
+}
+.que{
+    display:none;
+}

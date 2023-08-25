@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports</title>
+    <link rel="stylesheet" href="../CSS/QuizPage.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+</head>
+<body>
+    <h1>This is Board Games quiz page ( Category : <span> 16 </span>) </h1>
+    <form>
+        <span> select number of questions </span>
+        <select name="noq" id="num_ques">
+            <option value="5" type ="number">5</option>
+            <option value="6" type="number">6</option>
+            <option value="7" type ="number">7</option>
+            <option value="8" type="number">8</option>
+            <option value="9" type ="number">9</option>
+            <option value="10" type="number">10</option>
+            <option value="11" type ="number">11</option>
+            <option value="12" type="number">12</option>
+            <option value="13" type ="number">13</option>
+            <option value="14" type="number">14</option>
+            <option value="15" type ="number">15</option>
+        </select><br>
+        <span> select difficulty level </span>
+        <select name="difflevel" id="diff_level">
+            <option value="easy">easy</option>
+            <option value="medium">medium</option>
+            <option value="hrd">hard</option>
+        </select> <br>
+        <button>Start Now</button>
+    </form>
+</body>
+<script src="../JS/app.js"></script>
+</html>

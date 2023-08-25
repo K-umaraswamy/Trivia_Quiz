@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    <link rel="stylesheet" href="finalquiz.css">
+</head>
+<body>
+    <div id="see">
+        start
+    </div>
+    <div class="que">
+    <label for="agree" type="hidden" id="agree">I agree to everything</label>
+        <p>
+            <input type="radio" name="option"  value="1">
+            <label for="xs" id="i1">option 1</label> <br>
+            <input type="radio" name="option" value="2">
+            <label for="s" id="i2">option 2</label><br>
+            <input type="radio" name="option" value="3">
+            <label for="m"id="i3" >option 3</label><br>
+            <input type="radio" name="option" value="4">
+            <label for="m" id="i4">option 4</label><br>
+        </p></div>
+    <!-- <button>previous</button>
+    <button>next</button> -->
+</body>
+<script>
+    let di=document.getElementById("see");
+    let que=document.querySelector(".que");
+    let opt= document.getElementById("agree");
+    let o1=document.getElementById("i1");
+    let o2=document.getElementById("i2");
+    let o3=document.getElementById("i3");
+    let o4=document.getElementById("i4");
+    let url = "https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple&encode=url3986";
+    let getResponseAndAdd = async ()=>{ // now this function can be used to wait somewhere
+    let res =  await axios.get(url, {
+        headers: { Accept: "application/json" },
+    }); // we have to wait here
+    // console.log(res.data.joke);
+    // let h1 = document.createElement("h1");
+    // h1.innerText = res.data.joke;
+    //cont.append(h1);
+    var fdata=res.data.results;
+    que.style.display="block";
+    di.innerHTML="";
+    console.log(fdata);
+    di.style.display="none";
+    var div=document.createElement("div");
+    div.innerHTML = JSON.stringify(fdata[0].question);
+    div.className = "card";
+    agree.innerHTML = "";
+    agree.appendChild(div);
+    var ans=Math.floor(Math.random()*3)+1;
+    if(ans==1)o1.innerHTML=fdata[0].correct_answer;
+    else if(ans==2)o2.innerHTML=fdata[0].correct_answer;
+    else if(ans==3)o3.innerHTML=fdata[0].correct_answer;
+    else if(ans==4)o4.innerHTML=fdata[0].correct_answer;
+    if(ans<2)o2.innerHTML=fdata[0].incorrect_answers[0];
+    else{
+        o1.innerHTML=fdata[0].incorrect_answers[0];
+    }
+    if(ans<3)o3.innerHTML=fdata[0].incorrect_answers[1];
+    else{
+        o2.innerHTML=fdata[0].incorrect_answers[1];
+    }
+    if(ans<4)o4.innerHTML=fdata[0].incorrect_answers[2];
+    else{
+        o3.innerHTML=fdata[0].incorrect_answers[2];
+    }
+    console.log(ans);
+}
+di.addEventListener("click",getResponseAndAdd) ;
+</script>
+</html>
